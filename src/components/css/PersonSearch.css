@@ -1,0 +1,78 @@
+.person-search {
+  margin-left: 270px;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-container input {
+  width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-container button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.search-container button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #e74c3c;
+  background-color: #fadbd8;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.loading, .no-results {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+.person-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.person-card h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+.person-card p {
+  margin: 5px 0;
+  color: #34495e;
+}
+
+.person-card small {
+  color: #7f8c8d;
+  font-family: monospace;
+}
