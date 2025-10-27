@@ -93,40 +93,7 @@ export default function TravelPlanDetail({ plan, showDebug = false }) {
         </pre>
       </div>
 
-      {showDebug && (
-        <div style={{ marginTop: 16 }}>
-          <strong>Debug:</strong>
-          <pre
-            style={{
-              maxHeight: 200,
-              overflow: 'auto',
-              fontSize: 11,
-              backgroundColor: '#f5f5f5',
-              padding: 8,
-              borderRadius: 4,
-            }}
-          >
-            {JSON.stringify(
-              {
-                id: plan.id,
-                uri: plan.uri,
-                type: plan.type,
-                typeName: plan.typeName,
-                personName: plan.personName,
-                startStationName: plan.startStationName,
-                endStationName: plan.endStationName,
-                transportModeName: plan.transportModeName,
-                startTime: plan.startTime,
-                endTime: plan.endTime,
-                daysOfWeek: plan.daysOfWeek,
-                isActive: plan.isActive,
-              },
-              null,
-              2
-            )}
-          </pre>
-        </div>
-      )}
+      
     </div>
   );
 }

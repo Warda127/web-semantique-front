@@ -3,14 +3,13 @@ const API_BASE_URL = 'http://localhost:5000';
 export const apiService = {
   // Récupérer toutes les personnes
   async getPersons() {
-    const response = await fetch(`${API_BASE_URL}/api/persons`);
-    return await response.json();
+    // Use safeFetch which validates HTTP status and parses JSON
+    return await safeFetch(`${API_BASE_URL}/api/persons`);
   },
 
   // Rechercher des personnes
   async searchPersons(query) {
-    const response = await fetch(`${API_BASE_URL}/api/search/persons?q=${encodeURIComponent(query)}`);
-    return await response.json();
+    return await safeFetch(`${API_BASE_URL}/api/search/persons?q=${encodeURIComponent(query)}`);
   }
 };
 
