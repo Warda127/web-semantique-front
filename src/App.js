@@ -11,6 +11,7 @@ import { TransportModeService } from './services/transportModeService';
 import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
+import StationSearch from './components/StationSearch';
 
 function deriveTabFromPath(pathname) {
   if (!pathname) return 'persons';
@@ -155,12 +156,9 @@ function AppContent() {
         return <PersonSearch />;
       case 'ai':
         return <AIChat />;
-      case 'stations':
-        return (
-          <div className="content">
-            <h1>🚉 Gestion des Stations (À implémenter)</h1>
-          </div>
-        );
+     case 'stations':
+  return <StationSearch />;
+
       case 'travelplans':
         return (
           <div className="content" style={{ position: 'relative' }}>
