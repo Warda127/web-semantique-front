@@ -6,29 +6,35 @@ const Sidebar = ({ activeTab, onTabChange }) => {
     <div className="sidebar">
       <h2>🔍 SmartCity</h2>
       <ul>
-        <li 
+        <li
           className={activeTab === 'persons' ? 'active' : ''}
           onClick={() => onTabChange('persons')}
         >
           👥 Personnes
         </li>
-         <li 
+        <li
           className={activeTab === 'ai' ? 'active' : ''} // ← AJOUTER CET ONGLET
           onClick={() => onTabChange('ai')}
         >
           🤖 Assistant IA
         </li>
-        <li 
+        <li
           className={activeTab === 'stations' ? 'active' : ''}
           onClick={() => onTabChange('stations')}
         >
           🚉 Stations
         </li>
-        <li 
+        <li
           className={activeTab === 'transports' ? 'active' : ''}
           onClick={() => onTabChange('transports')}
         >
           🚌 Transports
+        </li>
+        <li
+          className={activeTab === 'travelplans' ? 'active' : ''}
+          onClick={() => onTabChange('travelplans')}
+        >
+          🗺️ Travel Plans
         </li>
       </ul>
     </div>
