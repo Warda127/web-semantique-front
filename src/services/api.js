@@ -26,3 +26,34 @@ export const aiService = {
     return await response.json();
   }
 };
+
+// Expose base URL and a robust safeFetch helper for services to consume
+export { API_BASE_URL };
+
+export async function safeFetch(url, options = {}) {
+  console.debug('[safeFetch] Request:', { url, options });
+  const res = await fetch(url, options);
+  const text = await res.text();
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch (err) {
+    const e = new Error(`Invalid JSON response from ${url}`);
+    e.status = res.status;
+    e.rawText = text;
+    e.url = url;
+    console.error('[safeFetch] Invalid JSON:', { url, status: res.status, text });
+    throw e;
+  }
+  if (!res.ok) {
+    const message = (data && (data.message || data.error)) || res.statusText || `Request failed: ${res.status}`;
+    const error = new Error(message);
+    error.status = res.status;
+    error.raw = data;
+    error.url = url;
+    console.error('[safeFetch] HTTP error:', { url, status: res.status, data });
+    throw error;
+  }
+  console.debug('[safeFetch] Response:', { url, status: res.status, data });
+  return data;
+}
