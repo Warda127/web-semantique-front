@@ -36,6 +36,12 @@ const Sidebar = ({ activeTab, onTabChange }) => {
         >
           🗺️ Travel Plans
         </li>
+        <li
+          className={activeTab === 'ontology' ? 'active' : ''}
+          onClick={() => onTabChange('ontology')}
+        >
+          🔗 Ontology Search
+        </li>
       </ul>
     </div>
   );

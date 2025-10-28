@@ -7,9 +7,22 @@
 
 # testing
 /coverage
+**/__tests__/OntologySearch.*.test.js
+src/components/ontology/__tests__/OntologySearch.integration.test.js
+src/components/ontology/__tests__/OntologySearch.api.test.js
+src/components/ontology/__tests__/OntologySearch.responsive.test.js
 
 # production
 /build
+
+# development and testing utilities
+/scripts/populate-database.js
+MANUAL_TESTING_GUIDE.md
+
+# Kiro IDE files (development specs and tasks)
+.kiro/
+.kiro/specs/
+.kiro/specs/ontology-search/
 
 # misc
 .DS_Store
@@ -21,3 +34,53 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+.DS_Store?
+ehthumbs.db
+Icon?
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Development artifacts and logs
+*.log
+debug.log
+error.log
+
+# Test coverage reports
+coverage/
+.nyc_output/
+
+# Environment and configuration files
+.env
+.env.*.local
+
+# Package manager files
+package-lock.json.bak
+yarn.lock.bak
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Development documentation (keep only essential docs)
+DEV_NOTES.md
+DEVELOPMENT.md
+TODO.md
+
+# Backup files
+*.bak
+*.backup
+*~

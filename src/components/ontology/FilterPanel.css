@@ -1,0 +1,140 @@
+.filter-panel {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.clear-all-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.clear-all-button:hover {
+  background-color: #e7f3ff;
+}
+
+.clear-all-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.filter-item:hover:not(.disabled) {
+  background-color: #e9ecef;
+}
+
+.filter-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filter-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.filter-checkbox:disabled {
+  cursor: not-allowed;
+}
+
+.filter-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.filter-label {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #495057;
+  user-select: none;
+}
+
+.filter-item.disabled .filter-label {
+  color: #6c757d;
+}
+
+.filter-count {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 500;
+  min-width: 2rem;
+  text-align: right;
+}
+
+.active-filters-summary {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.summary-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .filter-panel {
+    padding: 0.75rem;
+  }
+  
+  .filter-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .clear-all-button {
+    align-self: flex-end;
+  }
+  
+  .filter-item {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .filter-label {
+    font-size: 1rem;
+  }
+}
