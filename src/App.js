@@ -15,6 +15,7 @@ import ParkingStationApp from './parking_station'
 import StationSearch from './components/StationSearch';
 // import for ontology search
 import OntologySearch from './components/ontology/OntologySearch';
+import ParkingStationApp from './parking_station'
 
 function deriveTabFromPath(pathname) {
   if (!pathname) return 'persons';
@@ -30,14 +31,14 @@ function deriveTabFromPath(pathname) {
 // helper: extract localName from /transports/:localName
 function getTransportLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/transports\/([^/?#]+)/);
+  const m = pathname.match(/^\/transports\/([^\/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
 // helper: extract localName from /travelplans/:localName
 function getTravelPlanLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/travelplans\/([^/?#]+)/);
+  const m = pathname.match(/^\/travelplans\/([^\/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
@@ -161,7 +162,7 @@ function AppContent() {
       case 'ai':
         return <AIChat />;
      case 'stationsss':
-  return <StationSearch />;
+        return <StationSearch />;
 
       case 'stations':
         return (
