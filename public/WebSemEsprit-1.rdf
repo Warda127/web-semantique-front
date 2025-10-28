@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:transport="http://example.org/transport#">
+
+  <!-- Transport Mode Classes -->
+  <owl:Class rdf:about="http://example.org/transport#TransportMode">
+    <rdfs:label>Transport Mode</rdfs:label>
+    <rdfs:comment>Base class for all transport modes</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Bike">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#TransportMode"/>
+    <rdfs:label>Bike</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Bus">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#TransportMode"/>
+    <rdfs:label>Bus</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Metro">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#TransportMode"/>
+    <rdfs:label>Metro</rdfs:label>
+  </owl:Class>
+
+  <!-- Person Classes -->
+  <owl:Class rdf:about="http://example.org/transport#Person">
+    <rdfs:label>Person</rdfs:label>
+    <rdfs:comment>Base class for all person types</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Citizen">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Person"/>
+    <rdfs:label>Citizen</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Staff">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Person"/>
+    <rdfs:label>Staff</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Tourist">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Person"/>
+    <rdfs:label>Tourist</rdfs:label>
+  </owl:Class>
+
+  <!-- Station Classes -->
+  <owl:Class rdf:about="http://example.org/transport#Station">
+    <rdfs:label>Station</rdfs:label>
+    <rdfs:comment>Base class for all station types</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#BikeStation">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Station"/>
+    <rdfs:label>Bike Station</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#BusStation">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Station"/>
+    <rdfs:label>Bus Station</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#MetroStation">
+    <rdfs:subClassOf rdf:resource="http://example.org/transport#Station"/>
+    <rdfs:label>Metro Station</rdfs:label>
+  </owl:Class>
+
+  <!-- Trip, Route, Schedule Classes -->
+  <owl:Class rdf:about="http://example.org/transport#Trip">
+    <rdfs:label>Trip</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Route">
+    <rdfs:label>Route</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://example.org/transport#Schedule">
+    <rdfs:label>Schedule</rdfs:label>
+  </owl:Class>
+
+  <!-- Properties -->
+  <owl:ObjectProperty rdf:about="http://example.org/transport#hasStartStation">
+    <rdfs:label>has start station</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Trip"/>
+    <rdfs:range rdf:resource="http://example.org/transport#Station"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/transport#hasEndStation">
+    <rdfs:label>has end station</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Trip"/>
+    <rdfs:range rdf:resource="http://example.org/transport#Station"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/transport#usesTransportMode">
+    <rdfs:label>uses transport mode</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Trip"/>
+    <rdfs:range rdf:resource="http://example.org/transport#TransportMode"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://example.org/transport#connectsStation">
+    <rdfs:label>connects station</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Route"/>
+    <rdfs:range rdf:resource="http://example.org/transport#Station"/>
+  </owl:ObjectProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/transport#hasLength">
+    <rdfs:label>has length</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Route"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://example.org/transport#hasDuration">
+    <rdfs:label>has duration</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/transport#Trip"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+  </owl:DatatypeProperty>
+
+  <!-- Sample Instances -->
+  <transport:BikeStation rdf:about="http://example.org/transport#station1">
+    <rdfs:label>Central Bike Station</rdfs:label>
+  </transport:BikeStation>
+
+  <transport:BusStation rdf:about="http://example.org/transport#station2">
+    <rdfs:label>Main Bus Terminal</rdfs:label>
+  </transport:BusStation>
+
+  <transport:MetroStation rdf:about="http://example.org/transport#station3">
+    <rdfs:label>City Metro Hub</rdfs:label>
+  </transport:MetroStation>
+
+  <transport:Trip rdf:about="http://example.org/transport#trip1">
+    <rdfs:label>Morning Commute</rdfs:label>
+    <transport:hasStartStation rdf:resource="http://example.org/transport#station1"/>
+    <transport:hasEndStation rdf:resource="http://example.org/transport#station2"/>
+    <transport:usesTransportMode rdf:resource="http://example.org/transport#Bus"/>
+  </transport:Trip>
+
+  <transport:Route rdf:about="http://example.org/transport#route1">
+    <rdfs:label>City Center Route</rdfs:label>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station1"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station2"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station3"/>
+    <transport:hasLength rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.5</transport:hasLength>
+  </transport:Route>
+
+  <!-- Additional Sample Stations -->
+  <transport:BikeStation rdf:about="http://example.org/transport#station4">
+    <rdfs:label>University Bike Station</rdfs:label>
+  </transport:BikeStation>
+
+  <transport:BikeStation rdf:about="http://example.org/transport#station5">
+    <rdfs:label>Park Bike Station</rdfs:label>
+  </transport:BikeStation>
+
+  <transport:BusStation rdf:about="http://example.org/transport#station6">
+    <rdfs:label>Airport Bus Terminal</rdfs:label>
+  </transport:BusStation>
+
+  <transport:BusStation rdf:about="http://example.org/transport#station7">
+    <rdfs:label>Shopping Mall Bus Stop</rdfs:label>
+  </transport:BusStation>
+
+  <transport:MetroStation rdf:about="http://example.org/transport#station8">
+    <rdfs:label>Business District Metro</rdfs:label>
+  </transport:MetroStation>
+
+  <transport:MetroStation rdf:about="http://example.org/transport#station9">
+    <rdfs:label>Historic Center Metro</rdfs:label>
+  </transport:MetroStation>
+
+  <!-- Sample Person Instances -->
+  <transport:Citizen rdf:about="http://example.org/transport#citizen1">
+    <rdfs:label>Alice Johnson</rdfs:label>
+  </transport:Citizen>
+
+  <transport:Citizen rdf:about="http://example.org/transport#citizen2">
+    <rdfs:label>Bob Smith</rdfs:label>
+  </transport:Citizen>
+
+  <transport:Tourist rdf:about="http://example.org/transport#tourist1">
+    <rdfs:label>Maria Garcia</rdfs:label>
+  </transport:Tourist>
+
+  <transport:Tourist rdf:about="http://example.org/transport#tourist2">
+    <rdfs:label>John Wilson</rdfs:label>
+  </transport:Tourist>
+
+  <transport:Staff rdf:about="http://example.org/transport#staff1">
+    <rdfs:label>David Brown</rdfs:label>
+  </transport:Staff>
+
+  <transport:Staff rdf:about="http://example.org/transport#staff2">
+    <rdfs:label>Sarah Davis</rdfs:label>
+  </transport:Staff>
+
+  <!-- Additional Transport Mode Instances -->
+  <transport:Bike rdf:about="http://example.org/transport#bike1">
+    <rdfs:label>Electric City Bike</rdfs:label>
+  </transport:Bike>
+
+  <transport:Bike rdf:about="http://example.org/transport#bike2">
+    <rdfs:label>Shared Bike System</rdfs:label>
+  </transport:Bike>
+
+  <transport:Bus rdf:about="http://example.org/transport#bus1">
+    <rdfs:label>City Bus Line 42</rdfs:label>
+  </transport:Bus>
+
+  <transport:Bus rdf:about="http://example.org/transport#bus2">
+    <rdfs:label>Express Bus Route</rdfs:label>
+  </transport:Bus>
+
+  <transport:Metro rdf:about="http://example.org/transport#metro1">
+    <rdfs:label>Metro Line Blue</rdfs:label>
+  </transport:Metro>
+
+  <transport:Metro rdf:about="http://example.org/transport#metro2">
+    <rdfs:label>Metro Line Red</rdfs:label>
+  </transport:Metro>
+
+  <!-- Additional Trips -->
+  <transport:Trip rdf:about="http://example.org/transport#trip2">
+    <rdfs:label>Evening Return</rdfs:label>
+    <transport:hasStartStation rdf:resource="http://example.org/transport#station2"/>
+    <transport:hasEndStation rdf:resource="http://example.org/transport#station1"/>
+    <transport:usesTransportMode rdf:resource="http://example.org/transport#Metro"/>
+  </transport:Trip>
+
+  <transport:Trip rdf:about="http://example.org/transport#trip3">
+    <rdfs:label>Tourist Sightseeing</rdfs:label>
+    <transport:hasStartStation rdf:resource="http://example.org/transport#station6"/>
+    <transport:hasEndStation rdf:resource="http://example.org/transport#station9"/>
+    <transport:usesTransportMode rdf:resource="http://example.org/transport#Bus"/>
+  </transport:Trip>
+
+  <transport:Trip rdf:about="http://example.org/transport#trip4">
+    <rdfs:label>Bike Tour</rdfs:label>
+    <transport:hasStartStation rdf:resource="http://example.org/transport#station4"/>
+    <transport:hasEndStation rdf:resource="http://example.org/transport#station5"/>
+    <transport:usesTransportMode rdf:resource="http://example.org/transport#Bike"/>
+  </transport:Trip>
+
+  <!-- Additional Routes -->
+  <transport:Route rdf:about="http://example.org/transport#route2">
+    <rdfs:label>Metro Blue Line Route</rdfs:label>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station3"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station8"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station9"/>
+    <transport:hasLength rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22.3</transport:hasLength>
+  </transport:Route>
+
+  <transport:Route rdf:about="http://example.org/transport#route3">
+    <rdfs:label>Bus Express Route</rdfs:label>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station6"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station7"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station2"/>
+    <transport:hasLength rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18.7</transport:hasLength>
+  </transport:Route>
+
+  <transport:Route rdf:about="http://example.org/transport#route4">
+    <rdfs:label>Bike Path Network</rdfs:label>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station1"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station4"/>
+    <transport:connectsStation rdf:resource="http://example.org/transport#station5"/>
+    <transport:hasLength rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.2</transport:hasLength>
+  </transport:Route>
+
+  <!-- Sample Schedules -->
+  <transport:Schedule rdf:about="http://example.org/transport#schedule1">
+    <rdfs:label>Morning Rush Schedule</rdfs:label>
+  </transport:Schedule>
+
+  <transport:Schedule rdf:about="http://example.org/transport#schedule2">
+    <rdfs:label>Evening Schedule</rdfs:label>
+  </transport:Schedule>
+
+  <transport:Schedule rdf:about="http://example.org/transport#schedule3">
+    <rdfs:label>Weekend Schedule</rdfs:label>
+  </transport:Schedule>
+
+</rdf:RDF>
