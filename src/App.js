@@ -11,6 +11,7 @@ import { TransportModeService } from './services/transportModeService';
 import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
+import StationSearch from './components/StationSearch';
 // import for ontology search
 import OntologySearch from './components/ontology/OntologySearch';
 
@@ -158,6 +159,9 @@ function AppContent() {
         return <PersonSearch />;
       case 'ai':
         return <AIChat />;
+     case 'stations':
+  return <StationSearch />;
+
       case 'stations':
         return (
           <div className="content">

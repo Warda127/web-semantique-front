@@ -1,6 +1,6 @@
 const API_BASE_URL = 'http://localhost:50001';
 
-export const apiService = {
+const apiService = {
   // Récupérer toutes les personnes
   async getPersons() {
     // Use safeFetch which validates HTTP status and parses JSON
@@ -13,7 +13,20 @@ export const apiService = {
   }
 };
 
-export const aiService = {
+const stationService = {
+  // Get all stations
+  async getStations() {
+    const response = await fetch(`${API_BASE_URL}/api/search/stations`);
+    return await response.json();
+  },
+
+  // Search stations by name
+  async searchStations(query) {
+    const response = await fetch(`${API_BASE_URL}/api/search/stations?q=${encodeURIComponent(query)}`);
+    return await response.json();
+  }
+};
+const aiService = {
   async askQuestion(question) {
     const response = await fetch('http://localhost:50001/api/ai/query', {
       method: 'POST',
@@ -27,7 +40,9 @@ export const aiService = {
 };
 
 // Expose base URL and a robust safeFetch helper for services to consume
-export { API_BASE_URL };
+// Re-exported at the end together with other services to ensure named exports are explicit
+// (keeps exports consolidated and avoids accidental omissions by tooling)
+// export { API_BASE_URL };
 
 export async function safeFetch(url, options = {}) {
   console.debug('[safeFetch] Request:', { url, options });
@@ -56,3 +71,6 @@ export async function safeFetch(url, options = {}) {
   console.debug('[safeFetch] Response:', { url, status: res.status, data });
   return data;
 }
+
+// Consolidated named exports (include stationService explicitly)
+export { API_BASE_URL, apiService, stationService, aiService };
