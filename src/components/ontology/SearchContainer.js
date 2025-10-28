@@ -113,7 +113,7 @@ const SearchContainer = ({ onEntitySelect, selectedEntity }) => {
 
     try {
       // Fetch transport modes
-      const transportResponse = await fetch('http://localhost:50001/api/transport-modes/', {
+      const transportResponse = await fetch('http://localhost:5000/api/transport-modes/', {
         headers: { 'Accept': 'application/json' }
       });
       if (transportResponse.ok) {
@@ -137,7 +137,7 @@ const SearchContainer = ({ onEntitySelect, selectedEntity }) => {
       }
 
       // Fetch travel plans
-      const plansResponse = await fetch('http://localhost:50001/api/travel-plans/', {
+      const plansResponse = await fetch('http://localhost:5000/api/travel-plans/', {
         headers: { 'Accept': 'application/json' }
       });
       if (plansResponse.ok) {
@@ -181,7 +181,7 @@ const SearchContainer = ({ onEntitySelect, selectedEntity }) => {
 
     try {
       // Call the real backend API
-      const response = await fetch(`http://localhost:50001/api/search/concepts?q=${encodeURIComponent(searchQuery)}`, {
+      const response = await fetch(`http://localhost:5000/api/search/concepts?q=${encodeURIComponent(searchQuery)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

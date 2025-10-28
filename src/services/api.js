@@ -28,7 +28,7 @@ const stationService = {
 };
 const aiService = {
   async askQuestion(question) {
-    const response = await fetch('http://localhost:50001/api/ai/query', {
+    const response = await fetch('http://localhost:5000/api/ai/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
