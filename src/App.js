@@ -11,6 +11,7 @@ import { TransportModeService } from './services/transportModeService';
 import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
+import ParkingStationApp from './parking_station'
 
 function deriveTabFromPath(pathname) {
   if (!pathname) return 'persons';
@@ -158,7 +159,7 @@ function AppContent() {
       case 'stations':
         return (
           <div className="content">
-            <h1>🚉 Gestion des Stations (À implémenter)</h1>
+            <ParkingStationApp />
           </div>
         );
       case 'travelplans':
