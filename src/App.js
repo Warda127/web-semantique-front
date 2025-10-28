@@ -11,9 +11,11 @@ import { TransportModeService } from './services/transportModeService';
 import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
+import ParkingStationApp from './parking_station'
 import StationSearch from './components/StationSearch';
 // import for ontology search
 import OntologySearch from './components/ontology/OntologySearch';
+import ParkingStationApp from './parking_station'
 
 function deriveTabFromPath(pathname) {
   if (!pathname) return 'persons';
@@ -29,14 +31,14 @@ function deriveTabFromPath(pathname) {
 // helper: extract localName from /transports/:localName
 function getTransportLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/transports\/([^/?#]+)/);
+  const m = pathname.match(/^\/transports\/([^\/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
 // helper: extract localName from /travelplans/:localName
 function getTravelPlanLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/travelplans\/([^/?#]+)/);
+  const m = pathname.match(/^\/travelplans\/([^\/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
@@ -159,13 +161,13 @@ function AppContent() {
         return <PersonSearch />;
       case 'ai':
         return <AIChat />;
-     case 'stations':
-  return <StationSearch />;
+     case 'stationsss':
+        return <StationSearch />;
 
       case 'stations':
         return (
           <div className="content">
-            <h1>🚉 Gestion des Stations (À implémenter)</h1>
+            <ParkingStationApp />
           </div>
         );
       case 'ontology':
@@ -351,7 +353,6 @@ function AppContent() {
       stations: '/stations',
       transports: '/transports',
       travelplans: '/travelplans',
-      ontology: '/ontology',
     };
     const to = map[tab] || '/persons';
     if (window.location.pathname !== to) {
