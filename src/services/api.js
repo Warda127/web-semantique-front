@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:50001';
+const API_BASE_URL = 'http://localhost:5000';
 
 const apiService = {
   // Récupérer toutes les personnes
