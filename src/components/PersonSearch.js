@@ -18,7 +18,17 @@ const PersonSearch = () => {
     setError('');
     try {
       const data = await apiService.getPersons();
-      setPersons(data);
+      // Ensure we always set an array to avoid .map errors
+      if (Array.isArray(data)) {
+        setPersons(data);
+      } else if (data && Array.isArray(data.results)) {
+        // Some endpoints return { results: [...] }
+        setPersons(data.results);
+      } else {
+        console.warn('[PersonSearch] unexpected getPersons response:', data);
+        setPersons([]);
+        if (data && data.error) setError(data.error);
+      }
     } catch (err) {
       setError('Erreur lors du chargement des personnes');
       console.error(err);
@@ -36,7 +46,15 @@ const PersonSearch = () => {
     setError('');
     try {
       const data = await apiService.searchPersons(searchTerm);
-      setPersons(data);
+        if (Array.isArray(data)) {
+          setPersons(data);
+        } else if (data && Array.isArray(data.results)) {
+          setPersons(data.results);
+        } else {
+          console.warn('[PersonSearch] unexpected searchPersons response:', data);
+          setPersons([]);
+          if (data && data.error) setError(data.error);
+        }
     } catch (err) {
       setError('Erreur lors de la recherche');
       console.error(err);

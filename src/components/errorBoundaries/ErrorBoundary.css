@@ -1,0 +1,270 @@
+/* Error Boundary Styles */
+.error-boundary {
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid #e74c3c;
+  border-radius: 8px;
+  background-color: #fdf2f2;
+  color: #721c24;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.error-content {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.error-icon {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-boundary h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.error-boundary p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.retry-button,
+.refresh-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.retry-button:hover {
+  background-color: #2980b9;
+}
+
+.refresh-button {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.refresh-button:hover {
+  background-color: #7f8c8d;
+}
+
+.error-details {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.error-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.error-stack {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Search Error Boundary Specific Styles */
+.search-error-boundary {
+  border-color: #f39c12;
+  background-color: #fef9e7;
+  color: #8a6d3b;
+}
+
+.fallback-search {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.fallback-search h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.basic-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.basic-search-input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.basic-search-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.fallback-note {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Visualization Error Boundary Specific Styles */
+.visualization-error-boundary {
+  border-color: #9b59b6;
+  background-color: #f4f1f8;
+  color: #6c3483;
+}
+
+.fallback-visualization {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.fallback-visualization h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.entity-list-fallback {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.entity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entity-item {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  background-color: #fafafa;
+}
+
+.entity-type {
+  font-weight: 600;
+  color: #3498db;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.entity-label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.entity-properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.property {
+  background-color: #e9ecef;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: #495057;
+}
+
+.relationships-fallback {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.relationships-fallback h5 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.relationship-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.relationship-item {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .error-boundary {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .retry-button,
+  .refresh-button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .entity-properties {
+    flex-direction: column;
+  }
+  
+  .basic-search-input {
+    max-width: 100%;
+  }
+}

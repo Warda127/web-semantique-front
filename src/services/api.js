@@ -1,16 +1,15 @@
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'http://localhost:50001';
 
 const apiService = {
   // Récupérer toutes les personnes
   async getPersons() {
-    const response = await fetch(`${API_BASE_URL}/api/persons`);
-    return await response.json();
+    // Use safeFetch which validates HTTP status and parses JSON
+    return await safeFetch(`${API_BASE_URL}/api/persons`);
   },
 
   // Rechercher des personnes
   async searchPersons(query) {
-    const response = await fetch(`${API_BASE_URL}/api/search/persons?q=${encodeURIComponent(query)}`);
-    return await response.json();
+    return await safeFetch(`${API_BASE_URL}/api/search/persons?q=${encodeURIComponent(query)}`);
   }
 };
 
@@ -29,7 +28,7 @@ const stationService = {
 };
 const aiService = {
   async askQuestion(question) {
-    const response = await fetch('http://localhost:5000/api/ai/query', {
+    const response = await fetch('http://localhost:50001/api/ai/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

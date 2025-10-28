@@ -12,6 +12,8 @@ import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
 import StationSearch from './components/StationSearch';
+// import for ontology search
+import OntologySearch from './components/ontology/OntologySearch';
 
 function deriveTabFromPath(pathname) {
   if (!pathname) return 'persons';
@@ -19,6 +21,7 @@ function deriveTabFromPath(pathname) {
   if (pathname.startsWith('/stations')) return 'stations';
   if (pathname.startsWith('/transports')) return 'transports';
   if (pathname.startsWith('/travelplans')) return 'travelplans';
+  if (pathname.startsWith('/ontology')) return 'ontology';
   if (pathname.startsWith('/persons')) return 'persons';
   return 'persons';
 }
@@ -26,14 +29,14 @@ function deriveTabFromPath(pathname) {
 // helper: extract localName from /transports/:localName
 function getTransportLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/transports\/([^\/?#]+)/);
+  const m = pathname.match(/^\/transports\/([^/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
 // helper: extract localName from /travelplans/:localName
 function getTravelPlanLocalName(pathname) {
   if (!pathname) return null;
-  const m = pathname.match(/^\/travelplans\/([^\/?#]+)/);
+  const m = pathname.match(/^\/travelplans\/([^/?#]+)/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
@@ -159,6 +162,14 @@ function AppContent() {
      case 'stations':
   return <StationSearch />;
 
+      case 'stations':
+        return (
+          <div className="content">
+            <h1>🚉 Gestion des Stations (À implémenter)</h1>
+          </div>
+        );
+      case 'ontology':
+        return <OntologySearch />;
       case 'travelplans':
         return (
           <div className="content" style={{ position: 'relative' }}>
@@ -340,6 +351,7 @@ function AppContent() {
       stations: '/stations',
       transports: '/transports',
       travelplans: '/travelplans',
+      ontology: '/ontology',
     };
     const to = map[tab] || '/persons';
     if (window.location.pathname !== to) {

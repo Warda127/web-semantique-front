@@ -215,7 +215,6 @@ export default function TravelPlanList({ onSelect, debug = false }) {
       {/* debug raw payload and attempts */}
       {raw && (
         <details style={{ marginTop: 12 }}>
-          <summary>Debug: attempts & payload</summary>
           <div style={{ marginTop: 8 }}>
             {Array.isArray(raw.attempts) &&
               raw.attempts.map((a, i) => (
