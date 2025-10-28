@@ -11,6 +11,7 @@ import { TransportModeService } from './services/transportModeService';
 import TravelPlanList from './components/TravelPlanList';
 import TravelPlanDetail from './components/TravelPlanDetail';
 import { TravelPlanService } from './services/travelPlanService';
+import ParkingStationApp from './parking_station'
 import StationSearch from './components/StationSearch';
 // import for ontology search
 import OntologySearch from './components/ontology/OntologySearch';
@@ -159,13 +160,13 @@ function AppContent() {
         return <PersonSearch />;
       case 'ai':
         return <AIChat />;
-     case 'stations':
+     case 'stationsss':
   return <StationSearch />;
 
       case 'stations':
         return (
           <div className="content">
-            <h1>🚉 Gestion des Stations (À implémenter)</h1>
+            <ParkingStationApp />
           </div>
         );
       case 'ontology':
@@ -351,7 +352,6 @@ function AppContent() {
       stations: '/stations',
       transports: '/transports',
       travelplans: '/travelplans',
-      ontology: '/ontology',
     };
     const to = map[tab] || '/persons';
     if (window.location.pathname !== to) {
